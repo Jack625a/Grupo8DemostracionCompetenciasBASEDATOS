@@ -91,7 +91,7 @@
                 }
             });
             if(seleccion!== null){
-                let respuestaCorrecta=preguntas[preguntaActual].rsepuesta;
+                let respuestaCorrecta=preguntas[preguntaActual].rsepuesta //Cambiar a la variable de respuesta que pusieron en su base de datos;
                 //console.log("Opcion Correcta "+respuestaCorrecta)
                 //console.log(seleccion===parseInt(respuestaCorrecta))
                     if(seleccion === parseInt(respuestaCorrecta)){
