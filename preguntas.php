@@ -108,6 +108,27 @@
         return true;
         }
 
+        //Funcion para verificar la cantidad de Puntos para el siguiente nivel
+        function verificarPuntos(){
+            if(puntos<180){
+                alert("Nos alcanzaste los 180 puntos necesarios para avanzar de siguiente nivel. REPROBADO");
+                reiniciar();
+            }else{
+                nivelActual++;
+                preguntaActual=0;
+                cargarPreguntas();
+            }
+        }
+
+        //Funcion para reiniciar el juego
+        function reiniciar(){
+            nivelActual=1;
+            preguntaActual=0;
+            puntos=0;
+            contenedorPuntos=`<p>Puntos: ${puntos}</p>`;
+            cargarPreguntas();
+        }
+
         botonSiguiente.addEventListener('click', () => {
             //ingresar la verificacion de respuesta correcta
             if(verificarRespuesta()){
@@ -115,9 +136,7 @@
                  if (preguntaActual < preguntas.length) {
                     mostrarPregunta();
                 } else {
-                    nivelActual++;
-                     preguntaActual = 0;
-                    cargarPreguntas();
+                   verificarPuntos();
                 }
             }   
         });
