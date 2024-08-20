@@ -6,8 +6,8 @@
     if(isset($data['nombre'])&& isset($data['puntos'])){
         $nombre=$conexion->real_escape_string($data['nombre']);
         $puntos=intval($data['puntos']);
-
-        $sql="INSERT INTO ranking (Nombre, Puntos) VALUES ($nombre, $puntos)";
+       
+        $sql="INSERT INTO ranking (Nombre, Puntos) VALUES ('$nombre', $puntos)";
         if($conexion->query($sql)===TRUE){
             echo "Puntos Guardados Correctamente ";
         }else{

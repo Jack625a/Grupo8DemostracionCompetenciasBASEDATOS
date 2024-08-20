@@ -19,6 +19,7 @@
     <div id="contenedor-nivel"></div>
     <div id="contendor-puntos"></div>
     <button id="siguientePregunta">Siguiente</button>
+    <button id="salir">Salir</button>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -33,6 +34,7 @@
         const botonSiguiente = document.getElementById('siguientePregunta');
         const contenedorOpciones=document.getElementById('contenedor-opciones');
         const contenedorPuntos=document.getElementById('contendor-puntos');
+        const botonSalir=document.getElementById('salir')
 
         function cargarPreguntas() {
             console.log('Cargando preguntas para el nivel:', nivelActual); 
@@ -132,7 +134,7 @@
                         'Content-Type':'application/json'
                     },
                     body:
-                    json.stringify({
+                    JSON.stringify({
                         nombre:nombreUsuario,
                         puntos:puntos
                     })
@@ -160,6 +162,20 @@
             cargarPreguntas();
         }
 
+        //Evento para salir de la preguntas
+        botonSalir.addEventListener('click',()=>{
+            if(puntos==0){
+                location.reload();
+                reiniciar();
+                
+            }else{
+                guardarPuntos();
+                location.reload();
+                reiniciar();  
+            }  
+        })
+
+        //Evento para pasar a la siguiente pregunta
         botonSiguiente.addEventListener('click', () => {
             //ingresar la verificacion de respuesta correcta
             if(verificarRespuesta()){
