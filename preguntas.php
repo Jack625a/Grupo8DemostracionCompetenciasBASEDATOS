@@ -13,7 +13,156 @@
     <title>Preguntas</title>
 </head>
 <body>
+<style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* Fondo azul claro */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00796b; /* Verde oscuro */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        #contenedor-preguntas, #contenedor-opciones, #contenedor-nivel, #contendor-puntos {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            width: 80%;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #00796b;
+            margin: 10px 0;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #004d40;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+        }
+
+        #siguientePregunta, #salir {
+            margin-top: 20px;
+            width: 150px;
+            animation: bounce 2s infinite;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Estilo para el contenedor de preguntas */
+        #contenedor-preguntas {
+            border-left: 5px solid #00796b;
+            border-right: 5px solid #00796b;
+        }
+
+        /* Estilo para las opciones */
+        #contenedor-opciones {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contenedor-opciones label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #b2dfdb;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contenedor-opciones label:hover {
+            background-color: #80cbc4;
+        }
+
+        /* Estilo para el contenedor de puntos */
+        #contendor-puntos {
+            font-size: 1.5em;
+            color: #00796b;
+            font-weight: bold;
+        }
+
+    </style>
     <h1>Juego de trivias - Medicina</h1>
+    <audio id="sonido-fondo" loop>
+        <source src="correcto.mp3" type="audio/mp3">
+    </audio>
+    <script>
+        window.onload=function(){
+            var sonido=document.getElementById('sonido-fondo');
+            sonido.play();
+        };
+    </script>
     <div id="contenedor-preguntas"></div>
     <div id="contenedor-opciones"></div>
     <div id="contenedor-nivel"></div>
@@ -99,6 +248,7 @@
                 //console.log(seleccion===parseInt(respuestaCorrecta))
                     if(seleccion === parseInt(respuestaCorrecta)){
                     //Asignacion de puntos por respuesta correcta
+                       
                     
                     puntos+=10;
                 }

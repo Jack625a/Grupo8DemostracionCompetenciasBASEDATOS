@@ -6,6 +6,118 @@
     <title>Login</title>
 </head>
 <body>
+<style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* Fondo azul claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00796b; /* Verde oscuro */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: left;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        label {
+            color: #00796b;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #b2dfdb;
+            font-size: 1em;
+        }
+
+        button[type="submit"], #loginGoogle, #botonCerrarSesion {
+            width: 100%;
+            background-color: #00796b;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"]:hover, #loginGoogle:hover, #botonCerrarSesion:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.1em;
+            color: #00796b;
+        }
+
+        #mensaje {
+            display: none;
+            background-color: #e0f2f1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
     <h1>Iniciar Sesion</h1>
     <form action="sesion.php" method="POST">
         <label for="usuario">Usuario: </label>
