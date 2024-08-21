@@ -19,7 +19,7 @@
                 $_SESSION['Rol']=$user['Rol'];
                 $_SESSION['NombreUsuario']=$user['NombreUsuario'];
                 //Paso 4. Establecer el redireccionamineto a la pagina principal
-                header("Location: home.php");
+                header("Location: preguntas.php");
                 exit;
             }else{
                 echo "Error correo o contraseña incorrecto";

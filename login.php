@@ -63,7 +63,7 @@ const iniciarSesionUsuario=async()=>{
   .then((resultado)=>{
     const usuario=resultado.user;
     console.log(usuario)
-    window.location.href='home.php';
+    window.location.href='preguntas.php';
   })
   .catch((error)=>{
     console.log("Error al iniciar sesion");
